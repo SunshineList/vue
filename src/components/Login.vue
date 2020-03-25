@@ -1,14 +1,14 @@
 <template>
   <div>
-    <!--    <div class="outer_label">-->
-    <!--      <img class="inner_label login_logo" src="../assets/logo.png">-->
-    <!--    </div>-->
+    <div class="outer_label">
+      <img class="inner_label login_logo" src="../assets/logo.png">
+    </div>
     <div class="login_form">
       <input type="text" class="qxs-ic_user qxs-icon" placeholder="用户名" v-model="username">
-      <input type="text" class="qxs-ic_password qxs-icon" placeholder="密码" v-model="password">
+      <input type="password" class="qxs-ic_password qxs-icon" placeholder="密码" v-model="password"><br>
       <el-button class="login_btn" @click.native="login" type="primary" round :loading="isBtnLoading">登录</el-button>
       <div style="margin-top: 10px">
-        <span style="color: #A9A9AB">忘记密码？</span>
+        <span style="color: #A9A9AB"><a @click="forget" style="color: #3a8ee6">忘记密码？</a></span>
       </div>
     </div>
   </div>
@@ -26,10 +26,10 @@
             }
         },
         created() {
-            if (JSON.parse(localStorage.getItem('user')) && JSON.parse(localStorage.getItem('user')).userName) {
-                this.userName = JSON.parse(localStorage.getItem('user')).username;
-                this.password = JSON.parse(localStorage.getItem('user')).password;
-            }
+            // if (JSON.parse(localStorage.getItem('user')) && JSON.parse(localStorage.getItem('user')).userName) {
+            //     this.userName = JSON.parse(localStorage.getItem('user')).username;
+            //     this.password = JSON.parse(localStorage.getItem('pwd')).password;
+            // }
         },
         computed: {
             btnText() {
@@ -46,17 +46,27 @@
                 } else {
                     this.$axios({
                         method: "POST",
-                        url: 'http://127.0.0.1:8000/api/account/login/',
+                        url: 'api/login/',
                         data: {
                             username: this.username,
                             password: this.password
                         }
                     }).then((res) => {
-                        console.log(res.data)
+                        if (!res.data.error_code) {
+                            this.$store.dispatch("userLogin", true);
+                            localStorage.setItem("Flag", "isLogin");
+                            this.$message.success('登录成功');
+                            this.$router.push('/home')
+                        } else {
+                            this.$message.error('登录失败')
+                        }
                     }).catch((e) => {
                         console.log(e)
                     })
                 }
+            },
+            forget() {
+                alert("忘记密码联系本站管理员")
             }
         }
     }
@@ -73,7 +83,7 @@
   }
 
   .login_btn {
-    width: 10%;
+    /*width: 10%;*/
     font-size: 16px;
     background: -webkit-linear-gradient(left, #000099, #2154FA); /* Safari 5.1 - 6.0 */
     background: -o-linear-gradient(right, #000099, #2154FA); /* Opera 11.1 - 12.0 */
