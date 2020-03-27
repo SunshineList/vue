@@ -16,7 +16,7 @@
         <el-table-column prop="is_staff" label="是否能登录后台" :formatter="is_login">
           <template></template>
         </el-table-column>
-        <el-table-column prop="type" label="类型">
+        <el-table-column prop="type" label="类型" :formatter="Usertype">
           <template></template>
         </el-table-column>
         <el-table-column prop="date_joined" label="注册时间" :formatter="dateFormat">
@@ -112,6 +112,13 @@
                 }
                 return moment(date).format("YYYY-MM-DD HH:mm:ss")
             },
+            Usertype: function (row) {
+                if (row.type === '0') {
+                    return '管理员'
+                } else {
+                    return '普通用户'
+                }
+            },
             out() {
                 this.$store.dispatch("userLogin", false);
                 this.$message.success('退出登录');
@@ -119,7 +126,7 @@
             },
             del() {
                 this.$message.success('开发中，别着急.........')
-            }
+            },
         },
     }
 </script>
