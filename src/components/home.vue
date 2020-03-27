@@ -113,9 +113,11 @@
                 return moment(date).format("YYYY-MM-DD HH:mm:ss")
             },
             out() {
+                this.$store.dispatch("userLogin", false);
+                this.$message.success('退出登录');
                 this.$router.push("/")
             },
-            del(){
+            del() {
                 this.$message.success('开发中，别着急.........')
             }
         },

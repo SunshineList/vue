@@ -15,11 +15,6 @@ import './assets/theme.css'
 Vue.use(ElementUI);
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
-Vue.filter('moment', function (value, formatString) {
-  formatString = formatString || 'YYYY-MM-DD HH:mm:ss';
-  return moment(value).format(formatString); // value可以是普通日期 20170723
-  //return moment.unix(value).format(formatString); // 这是时间戳转时间
-});
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 //设置axios为form-data
