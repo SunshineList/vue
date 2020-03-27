@@ -15,6 +15,11 @@ import './assets/theme.css'
 Vue.use(ElementUI);
 Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
+Vue.filter('moment', function (value, formatString) {
+  formatString = formatString || 'YYYY-MM-DD HH:mm:ss';
+  return moment(value).format(formatString); // value可以是普通日期 20170723
+  //return moment.unix(value).format(formatString); // 这是时间戳转时间
+});
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 //设置axios为form-data
@@ -37,7 +42,6 @@ router.beforeEach((to, from, next) => {
   if (getFlag === "isLogin") {
     //设置vuex登录状态为已登录
     store.state.isLogin = true;
-    console.log(store.state.isLogin);
     next();
     //如果已登录，还想想进入登录注册界面，则定向回首页
     if (!to.meta.isLogin) {
@@ -56,7 +60,6 @@ router.beforeEach((to, from, next) => {
       next({
         path: '/',
       });
-      //iViewUi友好提示
       this.$message.error('请先登录')
       //用户进入无需登录的界面，则跳转继续
     } else {

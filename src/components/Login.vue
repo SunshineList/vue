@@ -33,7 +33,7 @@
         },
         computed: {
             btnText() {
-                if (this.isBtnLoading) return '登录中...';
+                if (this.isBtnLoading) this.$message.success('登录中');
                 return '登录';
             }
         },
@@ -44,6 +44,7 @@
                 } else if (!this.password) {
                     this.$message.error('请输入密码');
                 } else {
+                    this.isBtnLoading = true;
                     this.$axios({
                         method: "POST",
                         url: 'api/login/',
