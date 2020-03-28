@@ -127,7 +127,7 @@
     /*background: -o-linear-gradient(right, #07c160, #07c160); !* Opera 11.1 - 12.0 *!*/
     /*background: -moz-linear-gradient(right, #07c160, #07c160); !* Firefox 3.6 - 15 *!*/
     /*background: linear-gradient(to right, #07c160, #07c160); !* 标准的语法 *!*/
-    background: #07c160;
+    background: #abcdef;
     filter: brightness(1.1);
   }
 
