@@ -1,1 +1,19 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>wangshop</title><link href=/static/css/app.ed529736455b5040f3e96b5c72296e9f.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.338c7fca191b4e7e6186.js></script><script type=text/javascript src=/static/js/app.f62a21b6d7107574bc75.js></script></body></html>
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>wangzw案例</title><link href=/static/css/app.fd54b3b7ef46fbde2d48d2717e9fed60.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.338c7fca191b4e7e6186.js></script><script type=text/javascript src=/static/js/app.3ffef31e0241e272b522.js></script></body></html><script>(function () {
+        // 在标准 375px 适配下，100px = 1rem;
+        var baseFontSize = 100;
+        var baseWidth = 375;
+
+        var set = function () {
+            var clientWidth = document.documentElement.clientWidth || window.innerWidth;
+
+            var rem = 100;
+            if (clientWidth != baseWidth) {
+                rem = Math.floor(clientWidth / baseWidth * baseFontSize);
+            }
+
+            // document.querySelector('html').style.fontSize = rem + 'px';
+        };
+        set();
+
+        window.addEventListener('resize', set);
+    }());</script>
