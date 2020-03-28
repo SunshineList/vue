@@ -96,7 +96,7 @@
                     this.identifyCodeSrc = res.data.image_url;
                     this.hashkey = res.data.hashkey;
                     let objs = document.getElementById("imgIdentifyingCode");
-                    objs.src = 'http://127.0.0.1:8000' + this.identifyCodeSrc;
+                    objs.src = 'http://www.outputbug.com:8000' + this.identifyCodeSrc;
                 })
             }
         },
@@ -123,10 +123,11 @@
   .login_btn {
     /*width: 10%;*/
     font-size: 16px;
-    background: -webkit-linear-gradient(left, #07c160, #07c160); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, #07c160, #07c160); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, #07c160, #07c160); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, #07c160, #07c160); /* 标准的语法 */
+    /*background: -webkit-linear-gradient(left, #07c160, #07c160); !* Safari 5.1 - 6.0 *!*/
+    /*background: -o-linear-gradient(right, #07c160, #07c160); !* Opera 11.1 - 12.0 *!*/
+    /*background: -moz-linear-gradient(right, #07c160, #07c160); !* Firefox 3.6 - 15 *!*/
+    /*background: linear-gradient(to right, #07c160, #07c160); !* 标准的语法 *!*/
+    background: #07c160;
     filter: brightness(1.1);
   }
 
