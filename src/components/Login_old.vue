@@ -13,7 +13,8 @@
     <input type="text" class="qxs-ic_user qxs-icon" placeholder="验证码" v-model="yzm"></input>
     <input type="hidden" v-model="hashkey"></input>
     <br>
-    <el-button style="border-radius:10px" class="login_btn" @click.native="login" round :loading="isBtnLoading"><span
+    <el-button type="success" style="border-radius:10px" class="login_btn" @click.native="login" round
+               :loading="isBtnLoading"><span
       style="color: #fff">登录</span>
     </el-button>
     <div class="divIdentifyingCode" @click="getIdentifyingCode">
@@ -127,7 +128,7 @@
     /*background: -o-linear-gradient(right, #07c160, #07c160); !* Opera 11.1 - 12.0 *!*/
     /*background: -moz-linear-gradient(right, #07c160, #07c160); !* Firefox 3.6 - 15 *!*/
     /*background: linear-gradient(to right, #07c160, #07c160); !* 标准的语法 *!*/
-    background: #abcdef;
+    /*background: #abcdef;*/
     filter: brightness(1.1);
   }
 

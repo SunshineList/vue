@@ -24,14 +24,14 @@
                                                      v-model="email_key"></input>
     <br>
     <div style="padding-top: 10px">
-      <el-button style="border-radius:10px" class="login_btn" @click.native="register" round
+      <el-button type="success" style="border-radius:10px" class="login_btn" @click.native="register" round
                  :loading="isBtnLoading"><span
         style="color: #fff">注册</span>
       </el-button>
-      <el-button style="border-radius:10px" class="login_btn" @click.native="cancle"><span
+      <el-button type="success" style="border-radius:10px" class="login_btn" @click.native="cancle"><span
         style="color: #fff">重置</span>
       </el-button>
-      <el-button style="border-radius:10px" class="login_btn" @click.native="send_yzm"><span
+      <el-button type="success" style="border-radius:10px" class="login_btn" @click.native="send_yzm"><span
         style="color: #fff">发送验证码</span>
       </el-button>
     </div>
@@ -154,7 +154,7 @@
     /*background: -o-linear-gradient(right, #07c160, #07c160); !* Opera 11.1 - 12.0 *!*/
     /*background: -moz-linear-gradient(right, #07c160, #07c160); !* Firefox 3.6 - 15 *!*/
     /*background: linear-gradient(to right, #07c160, #07c160); !* 标准的语法 *!*/
-    background: #abcdef;
+    /*background: #abcdef;*/
     filter: brightness(1.1);
   }
 
